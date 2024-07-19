@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    max-height: 120px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    left: 114px;
+    top: 1px;
+    position: relative;
+}
+.logo img {
+    height: 120px;
+    width: 200px;
+    margin-right: 10px;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+}
+.nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.nav a:hover {
+    color: #ff5722;
+}
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+    margin-right: 20px;
+}
+.search-container input {
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+.search-container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+.icons i {
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #333;
+}
+
+.selected {
+    color: red !important;
+    font-weight: bolder !important; 
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+    .search-container {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 18px;
+    }
+    .search-container {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    .search-container input {
+        padding: 8px 10px;
+    }
+    .icons i {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .icons {
+        align-self: flex-end;
+    }
+}
+

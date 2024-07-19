@@ -1,0 +1,174 @@
+
+ .autores {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 20px;
+ }
+
+ .autores-list {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 20px;
+     max-width: 1200px;
+ }
+
+ .autor {
+     background-color: #f9f9f9;
+     padding: 20px;
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     margin-bottom: 20px;
+     cursor: pointer;
+     transition: background-color 0.5s ease transform 0.2s;
+ }
+
+ .autor:hover {
+    transform: translateY(-5px);
+}
+
+.autores h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+ .autor h3 {
+     margin-top: 0;
+     color: #333;
+ }
+
+ .autor p {
+     color: #000000;
+ }
+ .highlight {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .form-container h2 {
+    margin-top: 0;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .form-container input,
+  .form-container textarea {
+    width: 100%; /* Reducimos el ancho para que no choque con el borde derecho */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-container input:focus,
+  .form-container textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container button {
+    display: block;
+    width: 400px;
+    padding: 15px;
+    padding-left: 20px; /* Agregamos un poco de padding a la izquierda */
+    padding-right: 20px; /* Agregamos un poco de padding a la derecha */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 auto; /* Centramos el botón horizontalmente */
+    text-align: center; /* Centramos el texto dentro del botón */
+    box-sizing: border-box; /* Incluimos el padding en el ancho del botón */
+    
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-container > * {
+    margin-bottom: 20px;
+  }
+  
+  .form-container > *:last-child {
+    margin-bottom: 0;
+  }
+ .autor img {
+     width: 200;
+     /* Ancho de la imagen */
+     height: 140px;
+     /* Alto de la imagen */
+     border-radius: 20%;
+     /* Redondea la imagen */
+     margin: 10px auto;
+     /* Agrega un margen para centrar la imagen */
+     display: block;
+     /* Muestra la imagen como un bloque */
+ }
+
+ .crear-autor {
+     display: none;
+ }
+
+ .button-container {
+     position: fixed;
+     bottom: 20px;
+     right: 20px;
+ }
+
+ .button-container button {
+     padding: 10px 20px;
+     font-size: 16px;
+     background-color: #007bff;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .button-container button:hover {
+     background-color: #0056b3;
+ }
+
+ .button-container .cancelar {
+     background-color: red;
+ }
+
+ .button-container .cancelar:hover {
+     background-color: darkred;
+ }
+

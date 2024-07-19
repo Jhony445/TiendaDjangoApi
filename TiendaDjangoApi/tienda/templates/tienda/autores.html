@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autores</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tienda/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'tienda/css/autor.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <img src="{% static 'tienda/images/logo.png' %}" alt="Logo" />
+        </div>
+        <div class="nav">
+          <a href="{% url 'home' %}">Inicio</a>
+          <a href="{% url 'libros' %}">Libros</a>
+          <a href="{% url 'autores' %}" class="selected">Autores</a>
+          <a href="{% url 'cupones' %}">Descuentos</a>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Buscar..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="icons">
+          <i class="fas fa-user"></i>
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="autores">
+        <div class="autores-container">
+            <h2>Autores Registrados</h2>
+            <div class="autores-list">
+                {% if autores %}
+                    {% for autor in autores %}
+                        <div class="autor">
+                            {% if autor.imagen_perfil %}
+                                <img src="{{ autor.imagen_perfil }}" alt="Imagen de {{ autor.nombre }} {{ autor.apellido }}" />
+                            {% else %}
+                                <img src="https://randomuser.me/api/portraits/men/{{ forloop.counter }}.jpg" alt="Imagen de {{ autor.nombre }} {{ autor.apellido }}" />
+                            {% endif %}
+                            <h3>
+                                <span class="highlight">{{ autor.nombre }} {{ autor.apellido }}</span>
+                            </h3>
+                            <p class="fecha-nacimiento">
+                              <span class="highlight">Fecha de Nacimiento:</span>
+                              <span class="nacimiento">{{ autor.fechaNacimiento }}</span>
+                            </p>
+                            <p>
+                                <span class="highlight">ID:</span> {{ autor.autorLibroGuid }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay autores registrados.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+      
+      <section class="crear-autor">
+        <div class="form-container">
+          <h2>Agregar Nuevo Autor</h2>
+          <form
+            method="POST"
+            action="{% url 'autores' %}"
+            enctype="multipart/form-data"
+            id="crearAutorForm"
+          >
+            {% csrf_token %}
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required />
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input
+              type="date"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              required
+            />
+
+            <button type="submit">Agregar Autor</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div class="button-container">
+      <button id="toggle-form">Eres escritor? Registrate!</button>
+    </div>
+    <script src="{% static 'tienda/js/autores.js' %}"></script>
+    <script type="text/javascript">
+      var autoresUrl = "{% url 'autores' %}";
+    </script>
+  </body>
+</html>

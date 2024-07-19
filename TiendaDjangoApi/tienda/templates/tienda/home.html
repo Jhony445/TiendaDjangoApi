@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Navbar</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tienda/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'tienda/css/inicio.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <img src="{% static 'tienda/images/logo.png' %}" alt="Logo" />
+        </div>
+        <div class="nav">
+          <a href="{% url 'home' %}" class="selected">Inicio</a>
+          <a href="{% url 'libros' %}">Libros</a>
+          <a href="{% url 'autores' %}">Autores</a>
+          <a href="{% url 'cupones' %}">Descuentos</a>
+        </div>
+        <div class="search-container">
+          <input type="text" placeholder="Buscar..." />
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="icons">
+          <i class="fas fa-user"></i>
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div>
+    </header> 
+    <section class="banner">
+      <div class="banner-content">
+        <h1>Bienvenido a la Librería</h1>
+        <p>
+          Descubre una vasta colección de libros y recursos para todos los
+          gustos y edades.
+        </p>
+        <a href="{% url 'libros' %}" class="btn">Explora nuestros libros</a>
+      </div>
+    </section>
+    <section class="categories">
+      <h2>Categorías de Libros</h2>
+      <div class="category-list">
+        <div class="category">
+          <img
+            src="{% static 'tienda/images/lacupula.jpg' %}"
+            alt="Ficción"
+          />
+          <h3>Ficción</h3>
+        </div>
+        <div class="category">
+          <img
+            src="{% static 'tienda/images/foto2.jpg' %}"
+            alt="No ficción"
+          />
+          <h3>No ficción</h3>
+        </div>
+      </div>
+    </section>
+    <section class="featured-authors">
+      <h2>Autores Destacados</h2>
+      <div class="relative w-full overflow-hidden">
+        <div class="flex author-list transition-transform duration-500">
+          <div class="author flex-none">
+            <img src="{% static 'tienda/images/miya.jpg' %}" alt="Autor 1" />
+            <h3>Juan Pérez</h3>
+            <p>Descubre los libros más vendidos de Juan Pérez.</p>
+          </div>
+          <div class="author flex-none">
+            <img src="{% static 'tienda/images/jk-rowling.jpg' %}" alt="Autor 2" />
+            <h3>María Gómez</h3>
+            <p>Explora la colección de libros de María Gómez.</p>
+          </div>
+          <!-- Añadir más autores aquí si es necesario -->
+          <!-- Duplicar autores para el efecto de carrusel continuo -->
+          <div class="author flex-none">
+            <img src="{% static 'tienda/images/miya.jpg' %}" alt="Autor 1" />
+            <h3>Juan Pérez</h3>
+            <p>Descubre los libros más vendidos de Juan Pérez.</p>
+          </div>
+          <div class="author flex-none">
+            <img src="{% static 'tienda/images/jk-rowling.jpg' %}" alt="Autor 2" />
+            <h3>María Gómez</h3>
+            <p>Explora la colección de libros de María Gómez.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="news-promotions">
+      <h2>Novedades y Promociones</h2>
+      <div class="news-list">
+        <div class="news-item">
+          <img src="{% static 'tienda/images/tlp.jpg' %}" alt="Libro 1" />
+          <h3>¡Nuevo lanzamiento!</h3>
+          <p>Descubre nuestro último libro destacado.</p>
+        </div>
+        <div class="news-item">
+          <img src="{% static 'tienda/images/OIP.jpg' %}" alt="Libro 2" />
+          <h3>Oferta especial</h3>
+          <p>Aprovecha nuestro descuento en libros seleccionados.</p>
+        </div>
+      </div>
+    </section>
+    <script >
+      document.addEventListener('DOMContentLoaded', function() {
+        const authorList = document.querySelector('.author-list');
+        const authors = authorList.children;
+        let currentIndex = 0;
+        const totalAuthors = authors.length / 2; // Considering the duplicated elements
+        const transitionDuration = 500; // Duration in milliseconds
+        const intervalDuration = 3000; // Interval duration in milliseconds
+
+        function updateCarousel() {
+            const offset = currentIndex * authors[0].offsetWidth;
+            authorList.style.transform = `translateX(-${offset}px)`;
+        }
+
+        function moveCarousel() {
+            currentIndex++;
+            updateCarousel();
+            if (currentIndex === totalAuthors) {
+                setTimeout(() => {
+                    authorList.style.transition = 'none';
+                    currentIndex = 0;
+                    updateCarousel();
+                    setTimeout(() => {
+                        authorList.style.transition = `transform ${transitionDuration}ms`;
+                    }, 50);
+                }, transitionDuration);
+            }
+        }
+
+        setInterval(moveCarousel, intervalDuration);
+
+        // Initialize the carousel
+        updateCarousel();
+    });
+    </script>
+  </body>
+</html>

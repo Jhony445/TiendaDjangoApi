@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "TiendaDjangoEnv\\Scripts\\python.exe",
+    "python.analysis.extraPaths": ["./TiendaDjangoApi", "./tienda"]
+}
