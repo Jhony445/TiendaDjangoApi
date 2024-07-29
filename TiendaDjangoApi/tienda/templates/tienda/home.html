@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'tienda/css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'tienda/css/inicio.css' %}" />
+    <link rel="stylesheet" href="{% static 'tienda/css/footer.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -106,6 +107,39 @@
         </div>
       </div>
     </section>
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-section about">
+              <h3>Sobre Nosotros</h3>
+              <p>Somos una librería dedicada a ofrecer una amplia variedad de libros para todos los gustos y edades. Nuestro objetivo es fomentar la lectura y el conocimiento.</p>
+          </div>
+          <div class="footer-section links">
+              <h3>Enlaces Rápidos</h3>
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Libros</a></li>
+                  <li><a href="#">Autores</a></li>
+                  <li><a href="#">Contacto</a></li>
+              </ul>
+          </div>
+          <div class="footer-section contact">
+              <h3>Contacto</h3>
+              <p>Email: contacto@libreria.com</p>
+              <p>Teléfono: +123 456 7890</p>
+              <p>Dirección: Calle de la Lectura, 123, Ciudad, País</p>
+          </div>
+          <div class="footer-section social">
+              <h3>Síguenos</h3>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Librería. Todos los derechos reservados.</p>
+      </div>
+  </footer>
     <script >
       document.addEventListener('DOMContentLoaded', function() {
         const authorList = document.querySelector('.author-list');

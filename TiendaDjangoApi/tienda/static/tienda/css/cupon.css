@@ -1,7 +1,6 @@
 .hidden {
     display: none;
 }
-
 .cupones {
     display: flex;
     justify-content: center;
@@ -19,6 +18,8 @@
 .cupon {
     perspective: 1000px;
 }
+
+
 
 .cupon-inner {
     position: relative;
@@ -51,6 +52,13 @@
     color: #ffffff;
     transform: rotateY(180deg);
 }
+
+.cupon-back .exp-date {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+}
+
 
 .form-container {
     max-width: 600px;

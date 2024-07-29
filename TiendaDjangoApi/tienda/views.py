@@ -4,6 +4,7 @@ from datetime import datetime
 from django.urls import reverse
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+import random
 
 def home(request):
     return render(request, 'tienda/home.html')
@@ -122,11 +123,15 @@ def cupones(request):
         cupon_code = request.POST.get('cuponCode')
         porcentaje_descuento = request.POST.get('porcentajeDescuento')
         descuento_minimo = request.POST.get('descuentoMinimo')
+        start_date = request.POST.get('startDate')
+        end_date = request.POST.get('endDate')
 
         data = {
             'cuponCode': cupon_code,
             'procentajeDescuento': porcentaje_descuento,
             'descuentoMinimo': descuento_minimo,
+            'startDate': start_date,
+            'endDate': end_date,
         }
 
         try:
@@ -201,9 +206,12 @@ def detalle_libro(request, libro_id):
         print(f"Error al obtener datos de la API de libros: {e}")
         libros_data = []
 
+    # Seleccionar 5 libros aleatorios
+    libros_aleatorios = random.sample(libros_data, min(len(libros_data), 5))
+
     context = {
         'libro': libro_data,
         'autores': autores_data,
-        'libros': libros_data,
+        'libros': libros_aleatorios,
     }
     return render(request, 'tienda/detalle_libro.html', context)
